@@ -1,48 +1,46 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-class UndergroundSystem {
-    Map<Integer, ArrivalInfo> trips;
-    Map<String, double[]> totalInfo;
-
-    public UndergroundSystem() {
-        trips = new HashMap<>();
-        totalInfo = new HashMap<>();
-    }
-
-    public void checkIn(int id, String stationName, int t) {
-        trips.put(id, new ArrivalInfo(id, stationName, t));
-    }
-
-    public void checkOut(int id, String stationName, int t) {
-        ArrivalInfo arrival = trips.get(id);
-        String way = arrival.stationName + "->" + stationName;
-        int timeTrip = t - arrival.time;
-        double[] timeAndTrips = totalInfo.getOrDefault(way, new double[2]);
-        timeAndTrips[0] += timeTrip;
-        timeAndTrips[1]++;
-        totalInfo.put(way, timeAndTrips);
-    }
-
-    public double getAverageTime(String startStation, String endStation) {
-        String key = startStation + "->" + endStation;
-        double[] pair = totalInfo.get(key);
-        return pair[0] / pair[1];
-    }
-
-    class ArrivalInfo {
-        int id;
-        String stationName;
-        int time;
-
-        ArrivalInfo (int id, String stationName, int time) {
-            this.id = id;
-            this.stationName = stationName;
-            this.time = time;
-        }
-    }
-}
+//class UndergroundSystem {
+//    Map<Integer, ArrivalInfo> trips;
+//    Map<String, double[]> totalInfo;
+//
+//    public UndergroundSystem() {
+//        trips = new HashMap<>();
+//        totalInfo = new HashMap<>();
+//    }
+//
+//    public void checkIn(int id, String stationName, int t) {
+//        trips.put(id, new ArrivalInfo(id, stationName, t));
+//    }
+//
+//    public void checkOut(int id, String stationName, int t) {
+//        ArrivalInfo arrival = trips.get(id);
+//        String way = arrival.stationName + "->" + stationName;
+//        int timeTrip = t - arrival.time;
+//        double[] timeAndTrips = totalInfo.getOrDefault(way, new double[2]);
+//        timeAndTrips[0] += timeTrip;
+//        timeAndTrips[1]++;
+//        totalInfo.put(way, timeAndTrips);
+//    }
+//
+//    public double getAverageTime(String startStation, String endStation) {
+//        String key = startStation + "->" + endStation;
+//        double[] pair = totalInfo.get(key);
+//        return pair[0] / pair[1];
+//    }
+//
+//    class ArrivalInfo {
+//        int id;
+//        String stationName;
+//        int time;
+//
+//        ArrivalInfo (int id, String stationName, int time) {
+//            this.id = id;
+//            this.stationName = stationName;
+//            this.time = time;
+//        }
+//    }
+//}
 
 
 
@@ -85,4 +83,3 @@ class UndergroundSystem {
 //        }
 //    }
 //}
-
