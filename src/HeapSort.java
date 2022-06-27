@@ -1,6 +1,6 @@
 import java.util.*;
 
-//организовать алгоритм пирамидальной сортировки (Heap Sort) при помощи
+//организовать алгоритм пирамидальной сортировки (Heap Sort) при помощи PriorityQueue
 
 public class HeapSort {
     PriorityQueue<Integer> myQueue;
